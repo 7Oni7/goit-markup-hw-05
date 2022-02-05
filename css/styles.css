@@ -87,19 +87,36 @@ img {
 }
 
 .header-link {
-    font-style: 400;
+    /* font-style: 400; */
     font-weight: 500;
     font-size: 14px;
     line-height: calc(16 / 14);
     letter-spacing: 0.02em;
     color: var(--prymary-text-color);
     text-decoration: none;
+
+    transition-property: var(--accent-text-color);
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-link:hover,
 .header-link:focus {
     color: var(--accent-text-color);
 }
-
+.current {
+    color: var(--accent-text-color);
+    position: relative;
+}
+.current::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    background-color: var(--accent-text-color);
+    border-radius: 2px;
+    left: 0;
+    bottom: -32px;
+}
 .header-link-mail {
     display: flex;
     align-items: center;
@@ -112,6 +129,10 @@ img {
     letter-spacing: 0.02em;
     color: var(--function-text-color);
     text-decoration: none;
+
+    transition-property: var(--accent-text-color);
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-link-mail:hover,
 .header-link-mail:focus {
@@ -135,6 +156,10 @@ img {
     letter-spacing: 0.02em;
     color: var(--function-text-color);
     text-decoration: none;
+
+    transition-property: var(--accent-text-color);
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-link-tel:hover,
 .header-link-tel:focus {
@@ -192,15 +217,9 @@ img {
     min-width: 200px;
     height: 50px;
 }
-/* .hero-conteiner-btn:hover,
-.hero-conteiner-btn:focus {
-    color: var(--accent-text-color);
-    min-width: 200px;
-    height: 50px;
-} */
+
 .hero-btn:hover,
 .hero-btn:focus {
-    /* color: var(--title-text-color); */
     border-radius: 0px;
 }
 
@@ -406,6 +425,10 @@ img {
     align-items: center;
     justify-content: center;
     color: #afb1b8;
+
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon {
@@ -517,6 +540,44 @@ img {
 .footer-socials-icon {
     fill: var(--title-text-color);
 }
+/* ----------BACKDROP---------- */
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    /* transition: opacity 250ms, visibility 250ms; */
+}
+.backdrop.is-hidden .modal {
+}
+
+.modal {
+    width: 528px;
+    min-height: 581px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-close-btm {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 /* -----------PEGE2-portfolio------------ */
 
 /* -----------filter-portfolio------------- */
